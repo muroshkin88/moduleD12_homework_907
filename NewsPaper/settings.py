@@ -168,6 +168,8 @@ DEFAULT_FROM_EMAIL = 'Ваша_почта'
 APSCHEDULER_DATETIME_FORMAT = "N j, Y, f:s a"
 APSCHEDULER_RUN_NOW_TIMEOUT = 25
 
+#Логгирование в django
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -249,27 +251,25 @@ LOGGING = {
         'django.request': {
             'handlers': ['error_file_handler', 'mail_admin'],
             'level': 'ERROR',
-            'propagate': False,
+            'propagate': True,
         },
         'django.template': {
             'handlers': ['error_file_handler'],
             'level': 'ERROR',
-            'propagate': False,
+            'propagate': True,
         },
         'django.server': {
             'handlers': ['error_file_handler', 'mail_admin'],
             'level': 'ERROR',
-            'propagate': False,
+            'propagate': True,
         },
         'django.db_backend': {
             'handlers': ['error_file_handler'],
             'level': 'ERROR',
-            'propagate': False,
         },
         'django.security': {
             'handlers': ['security_file_handler'],
             'level': 'INFO',
-            'propagate': False,
         },
     }
 }
