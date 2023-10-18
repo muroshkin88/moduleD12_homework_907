@@ -266,10 +266,12 @@ LOGGING = {
         'django.db_backend': {
             'handlers': ['error_file_handler'],
             'level': 'ERROR',
+            'propagate': True,
         },
         'django.security': {
             'handlers': ['security_file_handler'],
             'level': 'INFO',
+            'propagate': True,
         },
     }
 }
