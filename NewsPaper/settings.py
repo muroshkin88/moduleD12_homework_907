@@ -169,7 +169,6 @@ APSCHEDULER_DATETIME_FORMAT = "N j, Y, f:s a"
 APSCHEDULER_RUN_NOW_TIMEOUT = 25
 
 #Логгирование в django
-
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -222,25 +221,26 @@ LOGGING = {
             'filters': ['require_debug_false'],
             'class': 'logging.FileHandler',
             'formatter': 'general_log',
-            'filename': os.path.join(BASE_DIR, 'log_files', 'general.log'),
+            "filename": f"{BASE_DIR}/log_files/general.log",
         },
         'error_file_handler': {
             'level': 'ERROR',
             'class': 'logging.FileHandler',
             'formatter': 'error',
-            'filename': os.path.join(BASE_DIR, 'log_files', 'errors.log'),
+            "filename": f"{BASE_DIR}/log_files/errors.log",
         },
         'security_file_handler': {
             'level': 'INFO',
             'formatter': 'general_log',
             'class': 'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR, 'log_files', 'security.log'),
+            "filename": f"{BASE_DIR}/log_files/security.log",
         },
         'mail_admin': {
             'level': 'ERROR',
             'class': 'django.utils.log.AdminEmailHandler',
             'formatter': 'warning_console',
             'filters': ['require_debug_false'],
+            "email_backend": "django.core.mail.backends.filebased.EmailBackend",
         },
     },
     'loggers': {
@@ -275,3 +275,4 @@ LOGGING = {
         },
     }
 }
+
